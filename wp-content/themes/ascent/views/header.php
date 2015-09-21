@@ -6,7 +6,7 @@
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> ng-app="wpNew">
-<head>
+<head ng-controller="HeadCtrl">
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width">
     <title ng-model=""><?php wp_title( '|', true, 'right' ); ?></title>
@@ -19,14 +19,13 @@
     <?php wp_head(); ?>
 
     <script src="<?php echo get_template_directory_uri(); ?>/includes/js/angular.min.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/includes/js/angular-route.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/includes/js/app.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/includes/js/services/services.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/includes/js/controllers/home.controller.js"></script>
 
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> ng-controller="HomeCtrl">
   <?php do_action('before'); ?>
 <header id="masthead" class="site-header" role="banner">
     <div class="header-top">
@@ -108,6 +107,4 @@
 
 <?php include_once 'header-banner.php' ?>
 
-<div class="main-content">
-    <div class="container">
-        <div id="content" class="main-content-inner">
+
