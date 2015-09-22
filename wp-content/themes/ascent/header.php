@@ -5,11 +5,11 @@
  * Displays all of the <head> section and everything up till <div class="main-content">
  */
 ?><!DOCTYPE html>
-<html <?php language_attributes(); ?> ng-app="wpNew">
+<html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width">
-    <title ng-model=""><?php wp_title( '|', true, 'right' ); ?></title>
+    <title><?php wp_title( '|', true, 'right' ); ?></title>
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="shortcut icon" href="<?php echo of_get_option('favicon'); ?>"/>
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
@@ -20,13 +20,15 @@
 
     <script src="<?php echo get_template_directory_uri(); ?>/includes/js/angular.min.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/includes/js/angular-route.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/includes/js/angular-resource.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/includes/js/app.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/includes/js/services/services.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/includes/js/filters/filters.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/includes/js/controllers/home.controller.js"></script>
 
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> ng-app="wpNew">
   <?php do_action('before'); ?>
 <header id="masthead" class="site-header" role="banner">
     <div class="header-top">

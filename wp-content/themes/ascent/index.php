@@ -12,8 +12,11 @@
  */
 
 get_header(); ?>
-
 <div class="row" ng-view="">
+
+</div>
+
+<div class="row">
     <div class="col-sm-12 col-md-9">
 	<?php if ( have_posts() ) : ?>
 		<?php /* Start the Loop */ ?>
