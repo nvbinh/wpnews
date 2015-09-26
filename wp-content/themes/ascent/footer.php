@@ -36,5 +36,13 @@
 
 <?php wp_footer(); ?>
 
+<script src="<?php echo get_template_directory_uri(); ?>/includes/js/angular.min.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/includes/js/angular-ui-router.min.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/includes/js/angular-resource.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/includes/js/app.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/includes/js/services/services.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/includes/js/filters/filters.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/includes/js/controllers/home.controller.js"></script>
+
 </body>
 </html>

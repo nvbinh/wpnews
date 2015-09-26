@@ -12,7 +12,12 @@
  */
 
 get_header(); ?>
-<div class="row" ng-view="">
+<!-- 
+<div class="main-content">
+    <div class="container">
+        <div id="content" class="main-content-inner"> -->
+
+<div class="row" ui-view>
 
 </div>
 
@@ -43,4 +48,10 @@ get_header(); ?>
         <?php get_sidebar(); ?>
     </div>
 </div>
+
+<!-- 		</div>
+	</div>
+</div> -->
+
+
 <?php get_footer(); ?>

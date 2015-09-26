@@ -18,14 +18,6 @@
     <![endif]-->
     <?php wp_head(); ?>
 
-    <script src="<?php echo get_template_directory_uri(); ?>/includes/js/angular.min.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/includes/js/angular-route.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/includes/js/angular-resource.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/includes/js/app.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/includes/js/services/services.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/includes/js/filters/filters.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/includes/js/controllers/home.controller.js"></script>
-
 </head>
 
 <body <?php body_class(); ?> ng-app="wpNew">
@@ -108,7 +100,33 @@
   <?php include_once 'header-searchform.php' ?>
 </header><!-- #masthead -->
 
-<?php include_once 'header-banner.php' ?>
+<script>
+    var opt = opt || {};
+    opt.template_directory_uri = '<?php echo get_template_directory_uri(); ?>';
+    opt.is_front_page = <?php echo is_front_page() ? is_front_page() : 0 ?>;
+    opt.default_banner_image = "<?php echo empty(of_get_option('default_banner_image')) == true ? '' : of_get_option('default_banner_image'); ?>";
+    opt.carousel = {};
+    opt.carousel.enable = <?php echo of_get_option('home_page_slider') ? of_get_option('home_page_slider') : 0; ?>;
+    opt.carousel.overlay = "<?php echo (of_get_option('slider_overlay_bg')) ? 'bg-overlay' : ' default-bg'; ?>";
+    opt.carousel.items = [];
+
+<?php $home_slider_array = ascent_home_slider(); ?>
+<?php foreach($home_slider_array as $home_slider_item => $home_slider_fields): ?>
+<?php if(of_get_option($home_slider_fields['image'])): ?>
+    var item = {
+        image: "<?php echo of_get_option($home_slider_fields['image']); ?>",
+        description: <?php echo json_encode(of_get_option($home_slider_fields['description'])); ?>
+    };
+    opt.carousel.items.push(item);
+<?php endif; ?>
+<?php endforeach; ?>
+
+    console.log(opt);
+</script>
+
+<?php //include_once 'header-banner.php' ?>
+
+<div ui-view="viewCarousel"></div>
 
 <div class="main-content">
     <div class="container">

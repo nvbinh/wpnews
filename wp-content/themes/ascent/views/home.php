@@ -1,3 +1,6 @@
+
+
+
 <?php
 //wp-content\themes\ascent\content.php
 ?>
